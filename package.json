@@ -36,6 +36,7 @@
     "jasmine-core": "^2.4.1",
     "karma": "^0.12.37",
     "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.7"
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^0.1.4"
   }
 }
