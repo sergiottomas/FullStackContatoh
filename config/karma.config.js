@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Tue Jan 20 2015 09:41:50 GMT-0200 (BRST)
+// Generated on Thu Mar 10 2016 17:18:23 GMT-0300 (BRT)
 
 module.exports = function(config) {
   config.set({
@@ -15,15 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        '../public/vendor/angular/angular.js',
-        '../public/vendor/angular-mocks/angular-mocks.js',
-        '../public/vendor/angular-resource/angular-resource.js',
-        '../public/vendor/angular-route/angular-route.js',
-        '../public/js/main.js',
-        '../public/js/controllers/**/*.js',
-        '../public/js/services/**/*.js',
-        '../test/spec/**/*Spec.js'
+      '../public/vendor/angular/angular.js',
+      '../public/vendor/angular-mocks/angular-mocks.js',
+      '../public/vendor/angular-resource/angular-resource.js',
+      '../public/vendor/angular-route/angular-route.js',
+      '../public/js/main.js',
+      '../public/js/controllers/**/*.js',
+      '../public/js/services/**/*.js',
+      '../test/spec/**/*Spec.js'
     ],
+
 
     // list of files to exclude
     exclude: [
@@ -67,5 +68,5 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
-  });
-};
+  })
+}
