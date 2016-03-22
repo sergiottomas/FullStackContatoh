@@ -6,45 +6,47 @@ var session = require('express-session');
 var passport = require('passport');
 var helmet = require('helmet');
 
-module.exports = function() {
-
+module.exports = function(app){
   var app = express();
-  
-  app.set('port', 3000);
 
+  //environment setup
+  app.set('port', 3000);
   app.set('view engine', 'ejs');
-  app.set('views','./app/views');
+  app.set('views', './app/views')
+
+
+
+  //middleware
   app.use(express.static('./public'));
-  // novos middlewares
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(require('method-override')());
-
   app.use(cookieParser());
-  app.use(session(
-    { secret: 'homem avestruz', 
-      resave: true, 
-      saveUninitialized: true 
-    }
-  ));
-  
+  app.use(session({
+    secret: 'homem avestruz',
+    resave: true,
+    saveUninitialized: true
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(helmet.xframe());
-  app.use(helmet.xssFilter());
-  app.use(helmet.nosniff());
-  app.disable('x-powered-by');
+  //securty options
+  //app.use(helmet());
+  app.use(helmet.hidePoweredBy({setTo: 'PHP 5.5.14'}));
+  helmet.hidePoweredBy; //no see powerd by
+  app.use(helmet.xframe()); //no iframe using
+  app.use(helmet.xssFilter()); //no <script> injection
+  app.use(helmet.nosniff()); //no allow bronser MIME Type
+  app.disable('x-powerd-by');
 
-  load('models', {cwd: 'app'})
-    .then('controllers')
-    .then('routes/auth.js')
-    .then('routes')
-    .into(app);
 
-  app.get('*', function(req, res) {
-     res.status(404).render('404');
+  //object cwd represents a default app folder
+  load('models', {cwd: 'app'}).then('controllers').then('routes/auth.js').then('routes').into(app);
+
+  //if no route
+  app.get('*', function(req, res){
+    res.status(404).render('404');
   });
 
   return app;
-};
+}
