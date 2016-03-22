@@ -1,15 +1,10 @@
-//authenticate modules
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var passport = require('passport');
-
-//header security modele
-var helmet = require('helmet');
-
-//application required modules
 var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
+var helmet = require('helmet');
 
 module.exports = function(app){
   var app = express();
