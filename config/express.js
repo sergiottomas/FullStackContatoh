@@ -12,7 +12,7 @@ var load = require('express-load');
 var bodyParser = require('body-parser');
 
 module.exports = function(app){
-  //var app = express();
+  var app = express();
 
   //environment setup
   app.set('port', 3000);
