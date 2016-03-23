@@ -1,4 +1,4 @@
-var ContatoPage = new require('./pages/ContatoPage.js');
+var ContatoPage = new require('./pages/ContatoPage');
 
 describe('Cadastro de contatos', function(){
   var pagina = new ContatoPage();

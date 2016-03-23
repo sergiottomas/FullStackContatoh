@@ -1,4 +1,4 @@
-var ContatosPage = new require('./pages/ContatosPage.js');
+var ContatosPage = new require('./pages/ContatosPage');
 
 describe('Página Principal', function(){
   var pagina = new ContatosPage();
