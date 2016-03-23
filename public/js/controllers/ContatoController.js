@@ -22,6 +22,9 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
         $scope.contato = new Contato();
         $scope.mensagem = {texto: "Contato adicionado com sucesso!"};
       }
+
+      //$scope.btnBackFocus = true; //adiciona focu ao botao voltar através da diretiva meuFocus
+      $scope.$broadcast('contatoSalvo');
     }).catch(function(error){
       $scope.mensagem = {texto: 'Não foi possível salvar'};
     });
