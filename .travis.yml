@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 0.10
+  - 0.1
 notifications:
   - sergiottomas@gmail.com
 services:
@@ -19,9 +19,23 @@ before_install:
   - bower install
 before_script:
   - node test/data.js
-  - grunt
-  - cd dist
+  - grunt minifica
 script:
   - karma start config/karma.config.js --single-run --browsers PhantomJS
   - node server &
   - protractor config/protractor.js
+before_deploy:
+  - git config --global user.email 'travis@travis-ci.com'
+  - git config --global user.name 'Travis CI'
+  - git checkout $TRAVIS_BRANCH
+  - git add --all
+  - git commit -am "Travis commit"
+deploy:
+  provider: openshift
+  user: sergiottomas@gmail.com
+  password:
+    secure: aG1QjUJi8P/SB0CSZu+PMZRgOrK5W0SEzybubiftNrwmt6ncKAYAZzFi8MQcOM4yEjafdrAeyFpg4UMaP75jo4THQeFfmI5lo4znYEbreNZMuOyFe3XbB3EyLSbjTm2v69SQxPgdx2LHAa+mIENZzsY9NtU2umbSw19Q8yrwuQfZ66YD7E3u0XJD/LER83VzB6mZjDxD6CrFPRbFGnPqI7+LcNmFcIhPDXX7wFloU+cKsTIJpANrwVc8aqOoB7y34PerjC2/odIY5HFUoK8nHVhc6wuU0oT6IAQ+6Izn0vHVPfcIGrSgp5weoZvnwU9RrPKJ2j/oiXr4bVhxiBFkQqPY11t4L1rXRH/z7GjSK7HqjnFTvAxM/y8k3GTDxhe54AZLm4HCRKU0mjJDeqlELsdnH1OTUpphTg0KeGIeIA8IRmiQqX5E6wdkE1LXgzFztAiisMPwy3dbwtsZDpLA1HJard1X9W1d0cySdeYj1fth+5NtDm5nlAi4iFMecAL/h3rgB0i3ZCecQbnF77RmjncRANDf3i7QWNt+vA5Q+U5gOOjhQGGqnOMb8HMdYylIKKFTz0fDo21N2ZZbbY6aKYowcX1eE3bpaKUhT9vFcoUWRFEQcxW8CdF39jzhcMn6vg4cmWid1B1bFBZ6qTkif/4hQI1RSFnhzTFqk89jNbU=
+  app: contatooh
+  domain: http://contatooh-sampleteste.rhcloud.com/
+  on:
+    repo: sergiottomas/contatooh
