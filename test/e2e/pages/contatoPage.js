@@ -1,4 +1,4 @@
-var contatoPage = function(){
+var ContatoPage = function(){
   this.visitar = function(){
     browser.get('http://localhost:3000/#/contato');
   };
@@ -24,4 +24,4 @@ var contatoPage = function(){
   };
 }
 
-module.exports = contatoPage;
+module.exports = ContatoPage;
