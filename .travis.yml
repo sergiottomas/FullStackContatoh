@@ -35,7 +35,13 @@ deploy:
   user: sergiottomas@gmail.com
   password:
     secure: aG1QjUJi8P/SB0CSZu+PMZRgOrK5W0SEzybubiftNrwmt6ncKAYAZzFi8MQcOM4yEjafdrAeyFpg4UMaP75jo4THQeFfmI5lo4znYEbreNZMuOyFe3XbB3EyLSbjTm2v69SQxPgdx2LHAa+mIENZzsY9NtU2umbSw19Q8yrwuQfZ66YD7E3u0XJD/LER83VzB6mZjDxD6CrFPRbFGnPqI7+LcNmFcIhPDXX7wFloU+cKsTIJpANrwVc8aqOoB7y34PerjC2/odIY5HFUoK8nHVhc6wuU0oT6IAQ+6Izn0vHVPfcIGrSgp5weoZvnwU9RrPKJ2j/oiXr4bVhxiBFkQqPY11t4L1rXRH/z7GjSK7HqjnFTvAxM/y8k3GTDxhe54AZLm4HCRKU0mjJDeqlELsdnH1OTUpphTg0KeGIeIA8IRmiQqX5E6wdkE1LXgzFztAiisMPwy3dbwtsZDpLA1HJard1X9W1d0cySdeYj1fth+5NtDm5nlAi4iFMecAL/h3rgB0i3ZCecQbnF77RmjncRANDf3i7QWNt+vA5Q+U5gOOjhQGGqnOMb8HMdYylIKKFTz0fDo21N2ZZbbY6aKYowcX1eE3bpaKUhT9vFcoUWRFEQcxW8CdF39jzhcMn6vg4cmWid1B1bFBZ6qTkif/4hQI1RSFnhzTFqk89jNbU=
-  app: contatooh
+  app:
+    master: contatooh
+    upstream: upstream
   domain: sampleteste
   on:
     repo: sergiottomas/contatooh
+branches:
+  only:
+    - master
+    - upstream
