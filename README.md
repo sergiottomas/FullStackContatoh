@@ -1,3 +1,2 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
-
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+# contatooh
+Uma aplicação feita com Node, Express, AngularJS, MongoDB. [![Build Status](https://travis-ci.org/sergiottomas/contatooh.svg?branch=master)](https://travis-ci.org/sergiottomas/contatooh)
