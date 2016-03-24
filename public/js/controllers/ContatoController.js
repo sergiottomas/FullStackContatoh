@@ -1,4 +1,4 @@
-angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, Contato){
+angular.module('contatooh').controller('ContatoController', ["$scope", "$routeParams", "Contato", function($scope, $routeParams, Contato){
   if($routeParams.contatoId){
     Contato.get({id: $routeParams.contatoId}, function(contato){
       $scope.contato = contato;
@@ -33,4 +33,4 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
   Contato.query(function(contatos){
     $scope.contatos = contatos;
   });
-});
+}]);
