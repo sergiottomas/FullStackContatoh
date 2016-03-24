@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 0.10
 notifications:
-  - sergiottomas@gmail.com
+  email: false
 services:
   - mongodb
 env:
@@ -20,9 +20,10 @@ before_install:
 before_script:
   - node test/data.js
   - grunt minifica
+  - node server &
+  - sleep 10
 script:
   - karma start config/karma.config.js --single-run --browsers PhantomJS
-  - node server &
   - protractor config/protractor.js
 before_deploy:
   - git config --global user.email 'travis@travis-ci.com'
@@ -30,7 +31,6 @@ before_deploy:
   - git checkout $TRAVIS_BRANCH
   - git add --all
   - git commit -am "Travis commit"
-  - git status
 deploy:
   provider: openshift
   user: sergiottomas@gmail.com
