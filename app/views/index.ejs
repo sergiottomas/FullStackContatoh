@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="contatooh">
+  <head>
+    <meta charset="utf-8">
+    <title>Express com AngularJS</title>
+
+    <!-- build:css css/index.min.css -->
+
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" charset="utf-8">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css" charset="utf-8">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div class="text-right">
+      <p>
+        Logado como: <span id="usuario-logado"> <%=usuarioLogado%></span>
+        <a href="/logout">Logout</a>
+      </p>
+    </div>
+    <div class="container" ng-view></div>
+
+    <!-- build:js js/index.min.js -->
+    <!-- angular dependencies -->
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-route/angular-route.js"></script>
+    <script src="vendor/angular-resource/angular-resource.js"></script>
+
+    <!--  app -->
+    <script src="js/main.js" charset="utf-8"></script>
+
+    <!-- controller -->
+    <script src="js/controllers/ContatosController.js" charset="utf-8"></script>
+    <script src="js/controllers/ContatoController.js" charset="utf-8"></script>
+
+    <!-- services -->
+    <script src="js/services/ContatoService.js" charset="utf-8"></script>
+
+    <!-- directives -->
+    <script src="js/directives/componentes/meus-componentes.js" charset="utf-8"></script>
+
+    <!-- endbuild -->
+  </body>
+</html>
