@@ -40,8 +40,8 @@ deploy:
     upstream: upstream
   domain: sampleteste
   on:
-    repo: sergiottomas/contatooh
-branches:
-  only:
-    - master
-    - upstream
+    all_branches: true
+  branches:
+    only:
+      - master
+      - upstream
